@@ -2,12 +2,6 @@
 
 This guide will help you run the Sign Language Recognition app **completely locally** without Firebase Storage.
 
-## What's Been Set Up
-
-✅ **Model is now local**: The trained model (`sign_language_recognizer_25-04-2023.task`) has been copied to the `public` folder and will be served locally by the React dev server.
-
-✅ **Environment configured**: The `.env.local` file has been updated to use the local model path.
-
 ## Quick Start
 
 ### 1. Install Dependencies (if not already done)
@@ -25,29 +19,6 @@ The app will open at `http://localhost:3000`
 ## How It Works
 
 - **Model Loading**: Instead of fetching from Firebase Storage, the model is now loaded from `/sign_language_recognizer_25-04-2023.task` which is served from your local `public` folder.
-
-- **Firebase Authentication**: The app still uses Firebase for user authentication. If you want to test without authentication, you can modify the code to bypass the auth check (see Optional Modifications below).
-
-## Optional Modifications
-
-### Running Without Firebase Authentication
-
-If you want to run completely without Firebase, you can modify the app to skip authentication:
-
-1. Open `src/components/Detect/Detect.jsx`
-2. Find the line with `{accessToken ? (` (around line 229)
-3. Change it to just show the content without the auth check
-
-Or simply create a mock user in the Redux store.
-
-### Using a Different Model
-
-If you want to use a different trained model:
-1. Place your `.task` file in the `public` folder
-2. Update the path in `.env.local`:
-   ```
-   REACT_APP_FIREBASE_STORAGE_TRAINED_MODEL_25_04_2023=/your-model-name.task
-   ```
 
 ## Project Structure
 
